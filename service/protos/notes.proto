@@ -1,0 +1,39 @@
+syntax = "proto3";
+
+package notes_app;
+
+message GRPCNoteMessage{
+    string uuid = 1;
+    string user_uuid = 2;
+    string name = 3;
+    string message = 4;
+}       
+message GRPCCreateNoteMessage{
+    string name = 1;
+    string message = 2;
+}
+message GRPCUpdateNoteMessage{
+    string uuid = 1;
+    string name = 2;
+    string message = 3;
+}
+message GRPCDeleteNoteMessage{
+    string uuid = 1;
+}
+message GRPCGetNoteMessage{
+    string uuid = 1;
+}
+message GRPCGetListNoteMessage{
+    string user_uuid = 1;
+}
+message GRPCNoteListMessage{
+    repeated GRPCNoteMessage notes = 1;
+}
+
+service NoteService{
+    rpc create(GRPCCreateNoteMessage) returns (GRPCNoteMessage);
+    rpc get(GRPCGetNoteMessage) returns (GRPCNoteMessage);
+    rpc update(GRPCUpdateNoteMessage) returns (GRPCNoteMessage);
+    rpc list(GRPCGetListNoteMessage) returns (GRPCNoteListMessage);
+    rpc delete(GRPCDeleteNoteMessage) returns (GRPCDeleteNoteMessage);
+}
