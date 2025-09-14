@@ -11,6 +11,8 @@ message GRPCNoteMessage{
 message GRPCCreateNoteMessage{
     string name = 1;
     string message = 2;
+    string user_uuid = 3;
+
 }
 message GRPCUpdateNoteMessage{
     string uuid = 1;
