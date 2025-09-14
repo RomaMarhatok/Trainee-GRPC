@@ -1,5 +1,6 @@
+import uuid
 from .base import BaseModel
-from sqlalchemy import String, Text
+from sqlalchemy import String, Text, UUID, ForeignKey
 from sqlalchemy.orm import Mapped, mapped_column
 
 
@@ -14,3 +15,17 @@ class Notes(BaseModel):
         Text,
         nullable=False,
     )
+    user_id: Mapped[uuid.UUID] = mapped_column(
+        UUID(as_uuid=True),
+        ForeignKey("users.uuididf", ondelete="CASCADE", onupdate="CASCADE"),
+        nullable=False,
+        index=True,
+    )
+
+    def to_dict(self):
+        return {
+            "uuid": self.uuididf,
+            "user_id": self.user_id,
+            "name": self.name,
+            "message": self.message,
+        }

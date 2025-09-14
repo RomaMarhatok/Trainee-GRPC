@@ -48,14 +48,6 @@ class PSQLDBConfig(AbstractDBConfig):
 class DBConfigCreator:
     @staticmethod
     def get_config() -> AbstractDBConfig:
-        if bool(os.environ["TEST_ENV"]):
-            return PSQLDBConfig(
-                DB_NAME=os.environ["TEST_DB_NAME"],
-                DB_HOST=os.environ["TEST_DB_HOST"],
-                DB_USER=os.environ["DB_USER"],
-                DB_PASSWORD=os.environ["DB_PASSWORD"],
-            )
-
         return PSQLDBConfig(
             DB_NAME=os.environ["DB_NAME"],
             DB_USER=os.environ["DB_USER"],
