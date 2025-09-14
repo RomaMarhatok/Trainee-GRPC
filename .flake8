@@ -1,5 +1,5 @@
 [flake8]
-exclude = .git, __pycache__,
+exclude = .git, __pycache__,./service/proto_grpc_gen/*
 extend-ignore = E203,E302
 max-line-length = 120
 max-complexity = 18
