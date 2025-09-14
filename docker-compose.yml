@@ -1,0 +1,32 @@
+services:
+  grpc-app:
+    restart: on-failure
+    container_name: grpc-app
+    build: 
+      context: .
+      dockerfile: ./Dockerfile
+    volumes:
+      - .:/app
+    environment:
+      - DB_HOST=db
+    env_file:
+      - .env
+    depends_on:
+      - db
+    ports:
+      - 5001:8888
+  db:
+    image: postgres
+    restart: on-failure
+    container_name: grpc-db
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    ports:
+      - ${DB_PORT:?err}:5432
+    environment:
+      - POSTGRES_DB=${DB_NAME:?err}
+      - POSTGRES_USER=${DB_USER:?err}
+      - POSTGRES_PASSWORD=${DB_PASSWORD:?err}
+      - POSTGRES_PORT=${DB_PORT:?err}
+volumes:
+  pgdata:
