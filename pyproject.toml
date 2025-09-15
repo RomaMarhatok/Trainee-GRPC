@@ -12,11 +12,11 @@ dependencies = [
     "grpcio-tools (>=1.74.0,<2.0.0)",
     "sqlalchemy (>=2.0.43,<3.0.0)",
     "alembic (>=1.16.5,<2.0.0)",
-    "fastapi[uvicorn] (>=0.116.1,<0.117.0)",
     "asyncpg[asyncio] (>=0.30.0,<0.31.0)",
     "dotenv (>=0.9.9,<0.10.0)",
     "pydantic (>=2.11.9,<3.0.0)",
-    "uvicorn (>=0.35.0,<0.36.0)"
+    "uvicorn (>=0.35.0,<0.36.0)",
+    "fastapi[standard] (>=0.116.1,<0.117.0)"
 ]
 
 
