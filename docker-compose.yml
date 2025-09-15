@@ -1,24 +1,45 @@
 services:
-  grpc-app:
+  fastapi-service:
     restart: on-failure
-    container_name: grpc-app
+    container_name: fastapi-service
+    hostname: fastapi-service
     build: 
       context: .
-      dockerfile: ./Dockerfile
+      dockerfile: ./api/Dockerfile
+    environment:
+      - RPC_HOST=grpc-service
     volumes:
       - .:/app
+    ports:
+      - 5001:8888
+    depends_on:
+      - grpc-service
+    networks:
+      - grpc-network
+  grpc-service:
+    restart: on-failure
+    container_name: grpc-service
+    hostname: grpc-service
+    build:
+      context: .
+      dockerfile: ./service/Dockerfile
+    volumes:
+      - .:/app
+    ports:
+      - 50051:50051
     environment:
       - DB_HOST=db
     env_file:
       - .env
     depends_on:
       - db
-    ports:
-      - 5001:8888
+    networks:
+      - grpc-network
   db:
     image: postgres
     restart: on-failure
     container_name: grpc-db
+    hostname: grpc-db
     volumes:
       - pgdata:/var/lib/postgresql/data
     ports:
@@ -28,5 +49,10 @@ services:
       - POSTGRES_USER=${DB_USER:?err}
       - POSTGRES_PASSWORD=${DB_PASSWORD:?err}
       - POSTGRES_PORT=${DB_PORT:?err}
+    networks:
+      - grpc-network
 volumes:
   pgdata:
+
+networks:
+  grpc-network:
