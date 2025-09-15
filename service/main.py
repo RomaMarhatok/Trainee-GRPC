@@ -1,10 +1,10 @@
 import grpc
 import asyncio
-from .protos.notes_pb2_grpc import add_NoteServiceServicer_to_server
-from .handler import NoteHandler
-from .db.repository import NotesRepository
-from .db.session import create_session_factory
-from .db.config import DBConfigCreator
+from service.protos.notes_pb2_grpc import add_NoteServiceServicer_to_server
+from service.handler import NoteHandler
+from service.db.repository import NotesRepository
+from service.db.session import create_session_factory
+from service.db.config import DBConfigCreator
 
 
 async def launch_grpc_server():
@@ -20,4 +20,4 @@ async def launch_grpc_server():
 
 
 if __name__ == "__main__":
-    asyncio.run(launch_grpc_server)
+    asyncio.run(launch_grpc_server())
