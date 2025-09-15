@@ -24,8 +24,8 @@ class Notes(BaseModel):
 
     def to_dict(self):
         return {
-            "uuid": self.uuididf,
-            "user_id": self.user_id,
+            "uuididf": str(self.uuididf),
+            "userUuididf": str(self.user_id),
             "name": self.name,
             "message": self.message,
         }

@@ -3,7 +3,7 @@
 import grpc
 import warnings
 
-from service.protos import notes_pb2 as service_dot_protos_dot_notes__pb2
+from . import notes_pb2 as notes__pb2
 
 GRPC_GENERATED_VERSION = "1.74.0"
 GRPC_VERSION = grpc.__version__
@@ -21,7 +21,7 @@ except ImportError:
 if _version_not_supported:
     raise RuntimeError(
         f"The grpc package installed is at version {GRPC_VERSION},"
-        + f" but the generated code in service/protos/notes_pb2_grpc.py depends on"
+        + f" but the generated code in notes_pb2_grpc.py depends on"
         + f" grpcio>={GRPC_GENERATED_VERSION}."
         + f" Please upgrade your grpc module to grpcio>={GRPC_GENERATED_VERSION}"
         + f" or downgrade your generated code using grpcio-tools<={GRPC_VERSION}."
@@ -39,32 +39,32 @@ class NoteServiceStub(object):
         """
         self.create = channel.unary_unary(
             "/notes_app.NoteService/create",
-            request_serializer=service_dot_protos_dot_notes__pb2.GRPCCreateNoteMessage.SerializeToString,
-            response_deserializer=service_dot_protos_dot_notes__pb2.GRPCNoteMessage.FromString,
+            request_serializer=notes__pb2.GRPCCreateNoteMessage.SerializeToString,
+            response_deserializer=notes__pb2.GRPCNoteMessage.FromString,
             _registered_method=True,
         )
         self.get = channel.unary_unary(
             "/notes_app.NoteService/get",
-            request_serializer=service_dot_protos_dot_notes__pb2.GRPCGetNoteMessage.SerializeToString,
-            response_deserializer=service_dot_protos_dot_notes__pb2.GRPCNoteMessage.FromString,
+            request_serializer=notes__pb2.GRPCGetNoteMessage.SerializeToString,
+            response_deserializer=notes__pb2.GRPCNoteMessage.FromString,
             _registered_method=True,
         )
         self.update = channel.unary_unary(
             "/notes_app.NoteService/update",
-            request_serializer=service_dot_protos_dot_notes__pb2.GRPCUpdateNoteMessage.SerializeToString,
-            response_deserializer=service_dot_protos_dot_notes__pb2.GRPCNoteMessage.FromString,
+            request_serializer=notes__pb2.GRPCUpdateNoteMessage.SerializeToString,
+            response_deserializer=notes__pb2.GRPCNoteMessage.FromString,
             _registered_method=True,
         )
         self.list = channel.unary_unary(
             "/notes_app.NoteService/list",
-            request_serializer=service_dot_protos_dot_notes__pb2.GRPCGetListNoteMessage.SerializeToString,
-            response_deserializer=service_dot_protos_dot_notes__pb2.GRPCNoteListMessage.FromString,
+            request_serializer=notes__pb2.GRPCGetListNoteMessage.SerializeToString,
+            response_deserializer=notes__pb2.GRPCNoteListMessage.FromString,
             _registered_method=True,
         )
         self.delete = channel.unary_unary(
             "/notes_app.NoteService/delete",
-            request_serializer=service_dot_protos_dot_notes__pb2.GRPCDeleteNoteMessage.SerializeToString,
-            response_deserializer=service_dot_protos_dot_notes__pb2.GRPCDeleteNoteMessage.FromString,
+            request_serializer=notes__pb2.GRPCDeleteNoteMessage.SerializeToString,
+            response_deserializer=notes__pb2.GRPCDeleteNoteMessage.FromString,
             _registered_method=True,
         )
 
@@ -107,28 +107,28 @@ def add_NoteServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
         "create": grpc.unary_unary_rpc_method_handler(
             servicer.create,
-            request_deserializer=service_dot_protos_dot_notes__pb2.GRPCCreateNoteMessage.FromString,
-            response_serializer=service_dot_protos_dot_notes__pb2.GRPCNoteMessage.SerializeToString,
+            request_deserializer=notes__pb2.GRPCCreateNoteMessage.FromString,
+            response_serializer=notes__pb2.GRPCNoteMessage.SerializeToString,
         ),
         "get": grpc.unary_unary_rpc_method_handler(
             servicer.get,
-            request_deserializer=service_dot_protos_dot_notes__pb2.GRPCGetNoteMessage.FromString,
-            response_serializer=service_dot_protos_dot_notes__pb2.GRPCNoteMessage.SerializeToString,
+            request_deserializer=notes__pb2.GRPCGetNoteMessage.FromString,
+            response_serializer=notes__pb2.GRPCNoteMessage.SerializeToString,
         ),
         "update": grpc.unary_unary_rpc_method_handler(
             servicer.update,
-            request_deserializer=service_dot_protos_dot_notes__pb2.GRPCUpdateNoteMessage.FromString,
-            response_serializer=service_dot_protos_dot_notes__pb2.GRPCNoteMessage.SerializeToString,
+            request_deserializer=notes__pb2.GRPCUpdateNoteMessage.FromString,
+            response_serializer=notes__pb2.GRPCNoteMessage.SerializeToString,
         ),
         "list": grpc.unary_unary_rpc_method_handler(
             servicer.list,
-            request_deserializer=service_dot_protos_dot_notes__pb2.GRPCGetListNoteMessage.FromString,
-            response_serializer=service_dot_protos_dot_notes__pb2.GRPCNoteListMessage.SerializeToString,
+            request_deserializer=notes__pb2.GRPCGetListNoteMessage.FromString,
+            response_serializer=notes__pb2.GRPCNoteListMessage.SerializeToString,
         ),
         "delete": grpc.unary_unary_rpc_method_handler(
             servicer.delete,
-            request_deserializer=service_dot_protos_dot_notes__pb2.GRPCDeleteNoteMessage.FromString,
-            response_serializer=service_dot_protos_dot_notes__pb2.GRPCDeleteNoteMessage.SerializeToString,
+            request_deserializer=notes__pb2.GRPCDeleteNoteMessage.FromString,
+            response_serializer=notes__pb2.GRPCDeleteNoteMessage.SerializeToString,
         ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -159,8 +159,8 @@ class NoteService(object):
             request,
             target,
             "/notes_app.NoteService/create",
-            service_dot_protos_dot_notes__pb2.GRPCCreateNoteMessage.SerializeToString,
-            service_dot_protos_dot_notes__pb2.GRPCNoteMessage.FromString,
+            notes__pb2.GRPCCreateNoteMessage.SerializeToString,
+            notes__pb2.GRPCNoteMessage.FromString,
             options,
             channel_credentials,
             insecure,
@@ -189,8 +189,8 @@ class NoteService(object):
             request,
             target,
             "/notes_app.NoteService/get",
-            service_dot_protos_dot_notes__pb2.GRPCGetNoteMessage.SerializeToString,
-            service_dot_protos_dot_notes__pb2.GRPCNoteMessage.FromString,
+            notes__pb2.GRPCGetNoteMessage.SerializeToString,
+            notes__pb2.GRPCNoteMessage.FromString,
             options,
             channel_credentials,
             insecure,
@@ -219,8 +219,8 @@ class NoteService(object):
             request,
             target,
             "/notes_app.NoteService/update",
-            service_dot_protos_dot_notes__pb2.GRPCUpdateNoteMessage.SerializeToString,
-            service_dot_protos_dot_notes__pb2.GRPCNoteMessage.FromString,
+            notes__pb2.GRPCUpdateNoteMessage.SerializeToString,
+            notes__pb2.GRPCNoteMessage.FromString,
             options,
             channel_credentials,
             insecure,
@@ -249,8 +249,8 @@ class NoteService(object):
             request,
             target,
             "/notes_app.NoteService/list",
-            service_dot_protos_dot_notes__pb2.GRPCGetListNoteMessage.SerializeToString,
-            service_dot_protos_dot_notes__pb2.GRPCNoteListMessage.FromString,
+            notes__pb2.GRPCGetListNoteMessage.SerializeToString,
+            notes__pb2.GRPCNoteListMessage.FromString,
             options,
             channel_credentials,
             insecure,
@@ -279,8 +279,8 @@ class NoteService(object):
             request,
             target,
             "/notes_app.NoteService/delete",
-            service_dot_protos_dot_notes__pb2.GRPCDeleteNoteMessage.SerializeToString,
-            service_dot_protos_dot_notes__pb2.GRPCDeleteNoteMessage.FromString,
+            notes__pb2.GRPCDeleteNoteMessage.SerializeToString,
+            notes__pb2.GRPCDeleteNoteMessage.FromString,
             options,
             channel_credentials,
             insecure,
