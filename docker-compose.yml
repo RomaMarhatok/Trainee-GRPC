@@ -17,7 +17,7 @@ services:
     networks:
       - grpc-network
   grpc-service:
-    restart: on-failure
+    restart: always
     container_name: grpc-service
     hostname: grpc-service
     build:

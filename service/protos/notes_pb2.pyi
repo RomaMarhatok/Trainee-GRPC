@@ -7,28 +7,40 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class GRPCNoteMessage(_message.Message):
-    __slots__ = ("uuididf", "userUuididf", "name", "message")
+    __slots__ = ("uuididf", "user_uuididf", "name", "message")
     UUIDIDF_FIELD_NUMBER: _ClassVar[int]
-    USERUUIDIDF_FIELD_NUMBER: _ClassVar[int]
+    USER_UUIDIDF_FIELD_NUMBER: _ClassVar[int]
     NAME_FIELD_NUMBER: _ClassVar[int]
     MESSAGE_FIELD_NUMBER: _ClassVar[int]
     uuididf: str
-    userUuididf: str
+    user_uuididf: str
     name: str
     message: str
-    def __init__(self, uuididf: _Optional[str] = ..., userUuididf: _Optional[str] = ..., name: _Optional[str] = ..., message: _Optional[str] = ...) -> None: ...
+    def __init__(
+        self,
+        uuididf: _Optional[str] = ...,
+        user_uuididf: _Optional[str] = ...,
+        name: _Optional[str] = ...,
+        message: _Optional[str] = ...,
+    ) -> None: ...
 
 class GRPCCreateNoteMessage(_message.Message):
-    __slots__ = ("uuididf", "name", "message", "userUuididf")
+    __slots__ = ("uuididf", "name", "message", "user_uuididf")
     UUIDIDF_FIELD_NUMBER: _ClassVar[int]
     NAME_FIELD_NUMBER: _ClassVar[int]
     MESSAGE_FIELD_NUMBER: _ClassVar[int]
-    USERUUIDIDF_FIELD_NUMBER: _ClassVar[int]
+    USER_UUIDIDF_FIELD_NUMBER: _ClassVar[int]
     uuididf: str
     name: str
     message: str
-    userUuididf: str
-    def __init__(self, uuididf: _Optional[str] = ..., name: _Optional[str] = ..., message: _Optional[str] = ..., userUuididf: _Optional[str] = ...) -> None: ...
+    user_uuididf: str
+    def __init__(
+        self,
+        uuididf: _Optional[str] = ...,
+        name: _Optional[str] = ...,
+        message: _Optional[str] = ...,
+        user_uuididf: _Optional[str] = ...,
+    ) -> None: ...
 
 class GRPCUpdateNoteMessage(_message.Message):
     __slots__ = ("uuididf", "name", "message")
@@ -38,7 +50,12 @@ class GRPCUpdateNoteMessage(_message.Message):
     uuididf: str
     name: str
     message: str
-    def __init__(self, uuididf: _Optional[str] = ..., name: _Optional[str] = ..., message: _Optional[str] = ...) -> None: ...
+    def __init__(
+        self,
+        uuididf: _Optional[str] = ...,
+        name: _Optional[str] = ...,
+        message: _Optional[str] = ...,
+    ) -> None: ...
 
 class GRPCDeleteNoteMessage(_message.Message):
     __slots__ = ("uuididf",)
@@ -53,13 +70,15 @@ class GRPCGetNoteMessage(_message.Message):
     def __init__(self, uuididf: _Optional[str] = ...) -> None: ...
 
 class GRPCGetListNoteMessage(_message.Message):
-    __slots__ = ("userUuididf",)
-    USERUUIDIDF_FIELD_NUMBER: _ClassVar[int]
-    userUuididf: str
-    def __init__(self, userUuididf: _Optional[str] = ...) -> None: ...
+    __slots__ = ("user_uuididf",)
+    USER_UUIDIDF_FIELD_NUMBER: _ClassVar[int]
+    user_uuididf: str
+    def __init__(self, user_uuididf: _Optional[str] = ...) -> None: ...
 
 class GRPCNoteListMessage(_message.Message):
     __slots__ = ("notes",)
     NOTES_FIELD_NUMBER: _ClassVar[int]
     notes: _containers.RepeatedCompositeFieldContainer[GRPCNoteMessage]
-    def __init__(self, notes: _Optional[_Iterable[_Union[GRPCNoteMessage, _Mapping]]] = ...) -> None: ...
+    def __init__(
+        self, notes: _Optional[_Iterable[_Union[GRPCNoteMessage, _Mapping]]] = ...
+    ) -> None: ...

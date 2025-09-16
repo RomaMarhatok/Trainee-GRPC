@@ -9,42 +9,38 @@ from google.protobuf import descriptor_pool as _descriptor_pool
 from google.protobuf import runtime_version as _runtime_version
 from google.protobuf import symbol_database as _symbol_database
 from google.protobuf.internal import builder as _builder
+
 _runtime_version.ValidateProtobufRuntimeVersion(
-    _runtime_version.Domain.PUBLIC,
-    6,
-    31,
-    1,
-    '',
-    'notes.proto'
+    _runtime_version.Domain.PUBLIC, 6, 31, 1, "", "notes.proto"
 )
 # @@protoc_insertion_point(imports)
 
 _sym_db = _symbol_database.Default()
 
 
-
-
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x0bnotes.proto\x12\tnotes_app\"V\n\x0fGRPCNoteMessage\x12\x0f\n\x07uuididf\x18\x01 \x01(\t\x12\x13\n\x0buserUuididf\x18\x02 \x01(\t\x12\x0c\n\x04name\x18\x03 \x01(\t\x12\x0f\n\x07message\x18\x04 \x01(\t\"\\\n\x15GRPCCreateNoteMessage\x12\x0f\n\x07uuididf\x18\x01 \x01(\t\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x0f\n\x07message\x18\x03 \x01(\t\x12\x13\n\x0buserUuididf\x18\x04 \x01(\t\"G\n\x15GRPCUpdateNoteMessage\x12\x0f\n\x07uuididf\x18\x01 \x01(\t\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x0f\n\x07message\x18\x03 \x01(\t\"(\n\x15GRPCDeleteNoteMessage\x12\x0f\n\x07uuididf\x18\x01 \x01(\t\"%\n\x12GRPCGetNoteMessage\x12\x0f\n\x07uuididf\x18\x01 \x01(\t\"-\n\x16GRPCGetListNoteMessage\x12\x13\n\x0buserUuididf\x18\x01 \x01(\t\"@\n\x13GRPCNoteListMessage\x12)\n\x05notes\x18\x01 \x03(\x0b\x32\x1a.notes_app.GRPCNoteMessage2\xf8\x02\n\x0bNoteService\x12\x46\n\x06\x63reate\x12 .notes_app.GRPCCreateNoteMessage\x1a\x1a.notes_app.GRPCNoteMessage\x12@\n\x03get\x12\x1d.notes_app.GRPCGetNoteMessage\x1a\x1a.notes_app.GRPCNoteMessage\x12\x46\n\x06update\x12 .notes_app.GRPCUpdateNoteMessage\x1a\x1a.notes_app.GRPCNoteMessage\x12I\n\x04list\x12!.notes_app.GRPCGetListNoteMessage\x1a\x1e.notes_app.GRPCNoteListMessage\x12L\n\x06\x64\x65lete\x12 .notes_app.GRPCDeleteNoteMessage\x1a .notes_app.GRPCDeleteNoteMessageb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(
+    b'\n\x0bnotes.proto\x12\tnotes_app"W\n\x0fGRPCNoteMessage\x12\x0f\n\x07uuididf\x18\x01 \x01(\t\x12\x14\n\x0cuser_uuididf\x18\x02 \x01(\t\x12\x0c\n\x04name\x18\x03 \x01(\t\x12\x0f\n\x07message\x18\x04 \x01(\t"]\n\x15GRPCCreateNoteMessage\x12\x0f\n\x07uuididf\x18\x01 \x01(\t\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x0f\n\x07message\x18\x03 \x01(\t\x12\x14\n\x0cuser_uuididf\x18\x04 \x01(\t"G\n\x15GRPCUpdateNoteMessage\x12\x0f\n\x07uuididf\x18\x01 \x01(\t\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x0f\n\x07message\x18\x03 \x01(\t"(\n\x15GRPCDeleteNoteMessage\x12\x0f\n\x07uuididf\x18\x01 \x01(\t"%\n\x12GRPCGetNoteMessage\x12\x0f\n\x07uuididf\x18\x01 \x01(\t".\n\x16GRPCGetListNoteMessage\x12\x14\n\x0cuser_uuididf\x18\x01 \x01(\t"@\n\x13GRPCNoteListMessage\x12)\n\x05notes\x18\x01 \x03(\x0b\x32\x1a.notes_app.GRPCNoteMessage2\xf8\x02\n\x0bNoteService\x12\x46\n\x06\x63reate\x12 .notes_app.GRPCCreateNoteMessage\x1a\x1a.notes_app.GRPCNoteMessage\x12@\n\x03get\x12\x1d.notes_app.GRPCGetNoteMessage\x1a\x1a.notes_app.GRPCNoteMessage\x12\x46\n\x06update\x12 .notes_app.GRPCUpdateNoteMessage\x1a\x1a.notes_app.GRPCNoteMessage\x12I\n\x04list\x12!.notes_app.GRPCGetListNoteMessage\x1a\x1e.notes_app.GRPCNoteListMessage\x12L\n\x06\x64\x65lete\x12 .notes_app.GRPCDeleteNoteMessage\x1a .notes_app.GRPCDeleteNoteMessageb\x06proto3'
+)
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
-_builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'notes_pb2', _globals)
+_builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, "notes_pb2", _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
-  DESCRIPTOR._loaded_options = None
-  _globals['_GRPCNOTEMESSAGE']._serialized_start=26
-  _globals['_GRPCNOTEMESSAGE']._serialized_end=112
-  _globals['_GRPCCREATENOTEMESSAGE']._serialized_start=114
-  _globals['_GRPCCREATENOTEMESSAGE']._serialized_end=206
-  _globals['_GRPCUPDATENOTEMESSAGE']._serialized_start=208
-  _globals['_GRPCUPDATENOTEMESSAGE']._serialized_end=279
-  _globals['_GRPCDELETENOTEMESSAGE']._serialized_start=281
-  _globals['_GRPCDELETENOTEMESSAGE']._serialized_end=321
-  _globals['_GRPCGETNOTEMESSAGE']._serialized_start=323
-  _globals['_GRPCGETNOTEMESSAGE']._serialized_end=360
-  _globals['_GRPCGETLISTNOTEMESSAGE']._serialized_start=362
-  _globals['_GRPCGETLISTNOTEMESSAGE']._serialized_end=407
-  _globals['_GRPCNOTELISTMESSAGE']._serialized_start=409
-  _globals['_GRPCNOTELISTMESSAGE']._serialized_end=473
-  _globals['_NOTESERVICE']._serialized_start=476
-  _globals['_NOTESERVICE']._serialized_end=852
+    DESCRIPTOR._loaded_options = None
+    _globals["_GRPCNOTEMESSAGE"]._serialized_start = 26
+    _globals["_GRPCNOTEMESSAGE"]._serialized_end = 113
+    _globals["_GRPCCREATENOTEMESSAGE"]._serialized_start = 115
+    _globals["_GRPCCREATENOTEMESSAGE"]._serialized_end = 208
+    _globals["_GRPCUPDATENOTEMESSAGE"]._serialized_start = 210
+    _globals["_GRPCUPDATENOTEMESSAGE"]._serialized_end = 281
+    _globals["_GRPCDELETENOTEMESSAGE"]._serialized_start = 283
+    _globals["_GRPCDELETENOTEMESSAGE"]._serialized_end = 323
+    _globals["_GRPCGETNOTEMESSAGE"]._serialized_start = 325
+    _globals["_GRPCGETNOTEMESSAGE"]._serialized_end = 362
+    _globals["_GRPCGETLISTNOTEMESSAGE"]._serialized_start = 364
+    _globals["_GRPCGETLISTNOTEMESSAGE"]._serialized_end = 410
+    _globals["_GRPCNOTELISTMESSAGE"]._serialized_start = 412
+    _globals["_GRPCNOTELISTMESSAGE"]._serialized_end = 476
+    _globals["_NOTESERVICE"]._serialized_start = 479
+    _globals["_NOTESERVICE"]._serialized_end = 855
 # @@protoc_insertion_point(module_scope)

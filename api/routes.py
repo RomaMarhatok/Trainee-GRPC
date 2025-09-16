@@ -54,6 +54,6 @@ async def get_notes_list(
     user_id: str, client: Annotated[NoteServiceStub, Depends(get_notes_grpc_client)]
 ):
     logger.info("Try get notes list from user with UUID:%s", user_id)
-    request = GRPCGetListNoteMessage(userUuididf=user_id)
+    request = ParseDict({"user_uuididf": user_id}, GRPCGetListNoteMessage())
     grpc_message = await client.list(request)
     return JSONResponse(content=MessageToDict(grpc_message))

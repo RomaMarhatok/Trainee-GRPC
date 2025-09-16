@@ -4,7 +4,7 @@ package notes_app;
 
 message GRPCNoteMessage{
     string uuididf = 1;
-    string userUuididf = 2;
+    string user_uuididf = 2;
     string name = 3;
     string message = 4;
 }       
@@ -12,7 +12,7 @@ message GRPCCreateNoteMessage{
     string uuididf = 1;
     string name = 2;
     string message = 3;
-    string userUuididf = 4;
+    string user_uuididf = 4;
 
 }
 message GRPCUpdateNoteMessage{
@@ -27,7 +27,7 @@ message GRPCGetNoteMessage{
     string uuididf = 1;
 }
 message GRPCGetListNoteMessage{
-    string userUuididf = 1;
+    string user_uuididf = 1;
 }
 message GRPCNoteListMessage{
     repeated GRPCNoteMessage notes = 1;

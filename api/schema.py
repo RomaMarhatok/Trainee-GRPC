@@ -2,7 +2,7 @@ from pydantic import BaseModel
 
 
 class POSTCreateNoteRequest(BaseModel):
-    userUuididf: str
+    user_uuididf: str
     name: str
     message: str
 

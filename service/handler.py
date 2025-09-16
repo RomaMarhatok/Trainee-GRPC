@@ -23,8 +23,8 @@ class NoteHandler(NoteServiceServicer):
         self, request: GRPCCreateNoteMessage, context: grpc.aio.ServicerContext
     ) -> GRPCNoteMessage:
         data = MessageToDict(request)
-        data.update({"user_id": data["userUuididf"]})
-        data.pop("userUuididf")
+        # data.update({"user_id": data["userUuididf"]})
+        # data.pop("userUuididf")
         note = await self.repo.create(data)
         response = ParseDict(note.to_dict(), GRPCNoteMessage())
         return response
@@ -62,7 +62,7 @@ class NoteHandler(NoteServiceServicer):
     async def list(
         self, request: GRPCGetListNoteMessage, context: grpc.aio.ServicerContext
     ) -> GRPCNoteListMessage:
-        notes = await self.repo.get_list(request.userUuididf)
+        notes = await self.repo.get_list(request.user_uuididf)
         response = GRPCNoteListMessage(
             notes=[ParseDict(note.to_dict(), GRPCNoteMessage()) for note in notes]
         )
